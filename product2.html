@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/sitemap.js"></script>
+    <script src="https://cdn.c360a.salesforce.com/beacon/c360a/{INSTANCE_ID}/scripts/c360a.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>Product 2</title>
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html" class="logo">
+            <img src="images/quadstarlogo.png">
+        </a>
+        <div class="header-right">
+            <a class="active" href="index.html">Home</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+            <a href="#login" class="login" onclick="displayAuthForm();">Login</a>
+        </div>
+        </div>
+    
+        <div id="loginform" style="visibility: hidden;">
+        <div href="#" class="close" onclick="hideAuthForm();"></div>
+        <form id="authenticationForm" onsubmit="submitAuthForm();return false;">
+            <label for="firstname">First Name:</label>
+            <input id="firstname" type="text">
+            <label for="lastname">Last Name:</label>
+            <input id="lastname" type="text">
+            <label for="email">Email:</label>
+            <input id="email" type="email">
+            <input type="submit" value="Login">
+        </form>
+        </div>
+    
+         <!-- Nouveau menu -->
+    <nav class="menu">
+        <ul>
+            <li><a href="#">DEVICES</a></li>
+            <li><a href="#">MOBILE</a></li>
+            <li><a href="#">INTERNET</a></li>
+            <li><a href="#">ENTERTAINMENT</a></li>
+            <li><a href="#">BUNDLES</a></li>
+            <li><a href="#">ONLY ON QUADSTAR</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+
+        <!-- Left Column / Headphones Image -->
+        <div class="left-column">
+          <img data-image="black" src="images/black.png" alt="">
+          <img data-image="blue" class="active" src="images/ePhone12-Pro-blackf.png" alt="">
+          <img data-image="red" src="images/red.png" alt="">
+        </div>
+  
+  
+        <!-- Right Column -->
+        <div class="right-column">
+  
+          <!-- Product Description -->
+          <div class="product-description">
+            <span>Phones</span>
+            <h1>ePhone 14 Pro</h1>
+            <p>The most powerful phone yet. Lightning-fast A15 Bionic chip. A big leap in battery life. Durable design. Superfast 5G. And a brighter Super Retina XDR display.</p>
+          </div>
+  
+          <!-- Product Configuration -->
+          <div class="product-configuration">
+  
+            <!-- Product Color -->
+            <div class="product-color">
+              <span>Color</span>
+  
+              <div class="color-choose">
+                <div>  
+                    <input data-image="red" type="radio" id="red" name="color" value="red" checked>
+                    <label for="red"><span></span></label>
+                </div>
+                <div>
+                  <input data-image="blue" type="radio" id="blue" name="color" value="blue">
+                  <label for="blue"><span></span></label>
+                </div>
+                <div>
+                  <input data-image="black" type="radio" id="black" name="color" value="black">
+                  <label for="black"><span></span></label>
+                </div>
+              </div>
+  
+            </div>
+  
+            <!-- Cable Configuration -->
+            <div class="cable-config">
+              <span>Storage size</span>
+  
+              <div class="cable-choose">
+                <button>64 Go</button>
+                <button>128 Go</button>
+                <button>512 Go</button>
+              </div>
+  
+              <a href="#">How to configurate your phone</a>
+            </div>
+          </div>
+  
+          <!-- Product Pricing -->
+          <div class="product-price">
+            <span>999$</span>
+            <a href="#" class="cart-btn">Add to cart</a>
+          </div>
+        </div>
+      </main>
+       <!-- You Might Also Like Section -->
+    <section class="related-products">
+        <h2>You Might Also Like</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="images/ePhone12-Mini-pink.png" alt="ePhone 14 Mini">
+                <h3>ePhone 14 Mini</h3>
+                <p>The miniature form ePhone</p>
+            </div>
+            <div class="product">
+                <img src="images/ePhone12-Pro-blackf.png" alt="ePhone 14 Pro">
+                <h3>ePhone 14 Pro</h3>
+                <p>The most powerful phone yet</p>
+            </div>
+            <div class="product">
+                <img src="images/ePad5-Mini-blackf.png" alt="ePad 5 Mini">
+                <h3>ePad 5 Mini</h3>
+                <p>The best tiny tablet</p>
+            </div>
+        </div>
+    </section>
+    <div class="spacer"></div>
+        <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Shop By Category</h3>
+            <ul>
+                <li><a href="#">Devices</a></li>
+                <li><a href="#">Plans</a></li>
+                <li><a href="#">Solutions</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="#">My Account</a></li>
+                <li><a href="#">My Business</a></li>
+                <li><a href="#">Order Status</a></li>
+                <li><a href="#">Add Services</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Customer Service</h3>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Repair Tickets</a></li>
+                <li><a href="#">Outages</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>About</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">News</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; © Copyright 2025 Salesforce.com, inc. | Quadstar is not a real company. It is used for Salesforce demos. No orders will be processed.</p>
+        <ul>
+            <li><a href="#">Legal</a></li>
+            <li><a href="#">Terms Of Service</a></li>
+            <li><a href="#">Privacy Information</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>
