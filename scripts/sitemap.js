@@ -104,6 +104,7 @@ function submitAuthForm() {
     });
 }
 
+
 function addToCart(productId) {
     SalesforceInteractions.sendEvent({
         interaction: {
