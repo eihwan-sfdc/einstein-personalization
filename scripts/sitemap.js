@@ -1,7 +1,10 @@
 window.onload = function() {
+
     // DEV : Debug ON
     console.log('DC SDK loaded: ' + SalesforceInteractions);
     SalesforceInteractions.setLoggingLevel('debug');
+
+    SalesforceInteractions.Personalization.Config.initialize({});
 
     // Init SDK: initialize with default optin
     // /!\ not production ready: update to declarative consent
@@ -72,6 +75,7 @@ window.onload = function() {
         SalesforceInteractions.initSitemap(config);
     });
 };
+
 function submitAuthForm() {
     /* Tracking Identity event */
     const inputs = document.getElementById("authenticationForm").elements;
@@ -87,6 +91,7 @@ function submitAuthForm() {
             }
         }
     });
+
     /* Party Id event */
     SalesforceInteractions.sendEvent({
         user: {
@@ -98,6 +103,7 @@ function submitAuthForm() {
         }
     });
 }
+
 function addToCart(productId) {
     SalesforceInteractions.sendEvent({
         interaction: {
@@ -112,15 +118,19 @@ function addToCart(productId) {
         }
     });
 }
+
 // ----------------------------
 // Helpers & utility functions
 // ----------------------------
+
 // Get descriptive page name
 function getPageName() {
     const path = window.location.pathname;
     const segments = path.split('/').filter(Boolean);
+
     // Si pas de segment, c'est la home
     if (segments.length === 0) return "Homepage";
+
     // On nettoie et transforme chaque segment
     const cleanedSegments = segments.map(segment => {
         // Enlève l'extension .html si présente
@@ -138,19 +148,23 @@ function getPageName() {
             })
             .join('');
     });
+
     // Join avec des underscores et limite à 80 caractères
     return cleanedSegments.join('_').slice(0, 80);
 }
+
 // Get page category
 function getPageCategory() {
     const segments = window.location.pathname.split('/').filter(Boolean);
     return segments[0] || 'home';
 }
+
 function getProductId() {
     const segments = window.location.pathname.split('/').filter(Boolean);
     const product = segments[segments.length - 1].replace('.html', '');
     return product || 'product1';
 }
+
 function getProductTitle() {
     try {
         return document.getElementsByClassName("product-description")[0].getElementsByTagName("h1")[0].innerText;
@@ -159,6 +173,7 @@ function getProductTitle() {
         return "";
     }
 }
+
 function getProductDescription() {
     try {
         return document.getElementsByClassName("product-description")[0].getElementsByTagName("p")[0].innerText;
@@ -167,6 +182,7 @@ function getProductDescription() {
         return "";
     }
 }
+
 // Display/Hide fake login form
 function displayAuthForm() {
     document.getElementById("loginform").style.visibility = "visible";
