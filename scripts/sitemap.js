@@ -96,12 +96,16 @@ function displayProductRecommendations(jsonData) {
     while (recommendationsDiv.firstChild) {
         recommendationsDiv.removeChild(recommendationsDiv.firstChild);
     }
-
-    const RecommendationH2 = document.querySelector('.related-products h2');
-    textContent = personalization.attributes.Title;
     
     personalizations.forEach(personalization => {
+    
+    //header 
+    const RecommendationH2 = document.querySelector('.related-products h2');
+    textContent = personalization.attributes.Title;
+
     if (personalization.data && personalization.data.length > 0) {     
+
+        //product recommendation
         personalization.data.forEach(product => {
             const productDiv = document.createElement('div');
             productDiv.className = 'product';
