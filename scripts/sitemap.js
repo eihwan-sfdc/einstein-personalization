@@ -97,35 +97,21 @@ function displayProductRecommendations(jsonData) {
         recommendationsDiv.removeChild(recommendationsDiv.firstChild);
     }
 
+    const RecommendationH2 = document.querySelector('.related-products h2');
+    textContent = personalization.attributes.Title;
+    
     personalizations.forEach(personalization => {
-    if (personalization.data && personalization.data.length > 0) {
-        const introText = document.createElement('h2');
-        introText.textContent = personalization.attributes.Title;
-        recommendationsDiv.appendChild(introText);
+    if (personalization.data && personalization.data.length > 0) {     
         personalization.data.forEach(product => {
             const productDiv = document.createElement('div');
             productDiv.className = 'product';
-            // const productLink = document.createElement('a');
-            // productLink.href = product.product_URL__c;
-            // productLink.target = '_blank';
             const productImage = document.createElement('img');
-//            productImage.style = 'width:200px';
             productImage.src = product.Image_URL__c;
-//            productImage.alt = product.ssot__Name__c;
             const productName = document.createElement('h3');
             productName.textContent = product.ssot__Name__c;
-            // const productSKU = document.createElement('p');
-            // productSKU.textContent = `SKU: ${product.ssot__ProductSKU__c}`;
-            // const productPrice = document.createElement('p');
-            // productPrice.textContent = `Price: $${product.unit_price__c}`;
-            // productLink.appendChild(productImage);
 
             const productDiscription = document.createElement('p');
             productDiscription.textContent = product.ssot__Description__c;
-
-            //productDiv.appendChild(productLink);
-            // productDiv.appendChild(productSKU);
-            // productDiv.appendChild(productPrice);
             productDiv.appendChild(productImage);
             productDiv.appendChild(productName);
             productDiv.appendChild(productDiscription);
