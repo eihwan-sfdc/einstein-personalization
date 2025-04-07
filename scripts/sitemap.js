@@ -93,7 +93,9 @@ window.onload = function() {
 function displayProductRecommendations(jsonData) {
     const personalizations = jsonData.personalizations;
     const recommendationsDiv = document.querySelector('.product-list');
-    recommendationsDiv.removeChild();
+    while (recommendationsDiv.firstChild) {
+        recommendationsDiv.removeChild(recommendationsDiv.firstChild);
+    }
 
     personalizations.forEach(personalization => {
     if (personalization.data && personalization.data.length > 0) {
