@@ -4,7 +4,9 @@ window.onload = function() {
     console.log('DC SDK loaded: ' + SalesforceInteractions);
     SalesforceInteractions.setLoggingLevel('debug');
 
-    SalesforceInteractions.Personalization.Config.initialize({});
+    SalesforceInteractions.Personalization.Config.initialize({
+
+    });
 
     // Init SDK: initialize with default optin
     // /!\ not production ready: update to declarative consent
@@ -42,7 +44,17 @@ window.onload = function() {
                                 name: getProductTitle()
                             }
                         }
-                    }
+                    },
+                    onActionEvent: (event) => {
+                        // Request personalization for the "homepage_hero" and "homepage_recs" personalization points on the homepage
+                        SalesforceInteractions.Personalization.fetch(["Multi_Product_Recommendation2"]).then(
+                          (personalizations) => {
+                            console.log("Personalization Response", personalizations);
+                            return displayProductRecommendations(personalizations);
+                          },
+                        );
+                        return event;
+                      },
                 },
                 {
                     // Track every page of the website
@@ -72,9 +84,55 @@ window.onload = function() {
                 }
             ]
         };
+
         SalesforceInteractions.initSitemap(config);
     });
 };
+
+// Function to display product recommendations
+function displayProductRecommendations(jsonData) {
+    const personalizations = jsonData.personalizations;
+    const recommendationsDiv = document.querySelector('.product-list');
+    recommendationsDiv.removeChild();
+
+    personalizations.forEach(personalization => {
+    if (personalization.data && personalization.data.length > 0) {
+        const introText = document.createElement('h2');
+        introText.textContent = personalization.attributes.Title;
+        recommendationsDiv.appendChild(introText);
+        personalization.data.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.className = 'product';
+            // const productLink = document.createElement('a');
+            // productLink.href = product.product_URL__c;
+            // productLink.target = '_blank';
+            const productImage = document.createElement('img');
+//            productImage.style = 'width:200px';
+            productImage.src = product.Image_URL__c;
+//            productImage.alt = product.ssot__Name__c;
+            const productName = document.createElement('h3');
+            productName.textContent = product.ssot__Name__c;
+            // const productSKU = document.createElement('p');
+            // productSKU.textContent = `SKU: ${product.ssot__ProductSKU__c}`;
+            // const productPrice = document.createElement('p');
+            // productPrice.textContent = `Price: $${product.unit_price__c}`;
+            // productLink.appendChild(productImage);
+
+            const productDiscription = document.createElement('p');
+            productDiscription.textContent = product.ssot__Description__c;
+
+            //productDiv.appendChild(productLink);
+            // productDiv.appendChild(productSKU);
+            // productDiv.appendChild(productPrice);
+            productDiv.appendChild(productImage);
+            productDiv.appendChild(productName);
+            productDiv.appendChild(productDiscription);
+            
+            recommendationsDiv.appendChild(productDiv);
+        });
+    }
+});
+}
 
 function submitAuthForm() {
     /* Tracking Identity event */
