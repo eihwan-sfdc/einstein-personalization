@@ -101,7 +101,7 @@ function displayProductRecommendations(jsonData) {
     
     //header 
     const RecommendationH2 = document.querySelector('.related-products h2');
-    textContent = personalization.attributes.Title;
+    RecommendationH2.textContent = personalization.attributes.Title;
 
     if (personalization.data && personalization.data.length > 0) {     
 
