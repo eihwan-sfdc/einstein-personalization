@@ -127,6 +127,14 @@ function displayProductRecommendations(jsonData) {
 }
 
 function submitAuthForm() {
+
+    //Change Consnet to OptIn
+    SalesforceInteractions.updateConsents({ 
+        purpose: SalesforceInteractions.ConsentPurpose.Tracking, 
+        provider: "ConsentProvider",
+        status: SalesforceInteractions.ConsentStatus.OptIn 
+    })
+
     /* Tracking Identity event */
     const inputs = document.getElementById("authenticationForm").elements;
     SalesforceInteractions.sendEvent({
