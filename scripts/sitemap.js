@@ -145,7 +145,7 @@ function submitAuthForm() {
                 lastName: inputs["lastname"].value,
                 email: inputs["email"].value,
                 sourcePageType: window.location.href,
-                isAnonymous: 1
+                isAnonymous: 0
             }
         }
     });
