@@ -86,6 +86,7 @@ window.onload = function() {
                         SalesforceInteractions.Personalization.fetch(["Home_Banner"]).then(
                           (personalizations) => {
                             console.log("Personalization Response", personalizations);
+                            return displayPersonalizedBanner(personalizations);
                           },
                         );
                         return event;
@@ -98,6 +99,18 @@ window.onload = function() {
     });
 };
 
+function displayPersonalizedBanner (jsonData) {
+    const banner = jsonData.personalizations[0];
+    if (banner){
+        const bannerImage = document.querySelector('DIV.hero-image');
+        const bannerHeader = document.querySelector('DIV.hero-text > H1');
+        const bannerDescription = document.querySelector('DIV.hero-text > P');
+
+        bannerImage.style.backgroundImage = "url('" + banner.attributes.BackgroundImageUrl + "')";
+        bannerHeader.textContent = banner.attributes.Header; 
+        bannerDescription.textContent = banner.attributes.Subheader;
+    }
+}
 // Function to display product recommendations
 function displayProductRecommendations(jsonData) {
     const personalizations = jsonData.personalizations;
@@ -257,3 +270,7 @@ function displayAuthForm() {
 function hideAuthForm() {
     document.getElementById("loginform").style.visibility = "hidden";
 }
+
+
+
+ 
