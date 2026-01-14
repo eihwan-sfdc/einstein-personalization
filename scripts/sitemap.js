@@ -57,9 +57,9 @@ window.onload = function() {
                       },
                 },
                 {
-                    // Track every page of the website
+                    // Home
                     name: "page",
-                    isMatch: () => true,
+                    isMatch: () => /\/index/.test(window.location.href),
                     interaction: {
                         name: getPageName(),
                         eventType: "PageView",
@@ -80,7 +80,16 @@ window.onload = function() {
                                 timestamp: new Date().toISOString()
                             }
                         }
-                    }
+                    },
+                    onActionEvent: (event) => {
+                        // Request personalization for the "homepage_hero" and "homepage_recs" personalization points on the homepage
+                        SalesforceInteractions.Personalization.fetch(["Home_Banner"]).then(
+                          (personalizations) => {
+                            console.log("Personalization Response", personalizations);
+                          },
+                        );
+                        return event;
+                      },
                 }
             ]
         };
