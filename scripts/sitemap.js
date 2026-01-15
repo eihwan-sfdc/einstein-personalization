@@ -47,7 +47,7 @@ window.onload = function() {
                     },
                     onActionEvent: (event) => {
                         // Request personalization for the "homepage_hero" and "homepage_recs" personalization points on the homepage
-                        SalesforceInteractions.Personalization.fetch(["Multi_Product_Recommendation2"]).then(
+                        SalesforceInteractions.Personalization.fetch(["Product_Recommendation"]).then(
                           (personalizations) => {
                             console.log("Personalization Response", personalizations);
                             return displayProductRecommendations(personalizations);
