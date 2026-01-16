@@ -47,13 +47,13 @@ window.onload = function() {
                     },
                     onActionEvent: (event) => {
                         // Request personalization for the "homepage_hero" and "homepage_recs" personalization points on the homepage
-                        SalesforceInteractions.Personalization.fetch(["Product_Recommendation"]).then(
-                          (personalizations) => {
-                            console.log("Personalization Response", personalizations);
-                            return displayProductRecommendations(personalizations);
-                          },
-                        );
-                        return event;
+                        // SalesforceInteractions.Personalization.fetch(["Product_Recommendation"]).then(
+                        //   (personalizations) => {
+                        //     console.log("Personalization Response", personalizations);
+                        //     return displayProductRecommendations(personalizations);
+                        //   },
+                        // );
+                        // return event;
                       },
                 },
                 {
