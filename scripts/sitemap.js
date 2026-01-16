@@ -185,6 +185,16 @@ function submitAuthForm() {
             }
         }
     });
+
+    SalesforceInteractions.sendEvent({
+        user: {
+            attributes: {
+                interactionName: 'Login',
+                email: inputs["email"].value,
+                eventType: 'ContactPointEmail',
+            }
+        }
+    });
 }
 
 function addToCart(productId) {
