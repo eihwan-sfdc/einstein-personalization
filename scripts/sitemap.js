@@ -89,7 +89,7 @@ window.onload = function() {
                         //     return displayPersonalizedBanner(personalizations);
                         //   },
                         // );
-                        // return event;
+                        return event;
                       },
                 }
             ]
