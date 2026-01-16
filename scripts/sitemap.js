@@ -83,13 +83,13 @@ window.onload = function() {
                     },
                     onActionEvent: (event) => {
                         // Request personalization for the "homepage_hero" and "homepage_recs" personalization points on the homepage
-                        SalesforceInteractions.Personalization.fetch(["Home_Banner"]).then(
-                          (personalizations) => {
-                            console.log("Personalization Response", personalizations);
-                            return displayPersonalizedBanner(personalizations);
-                          },
-                        );
-                        return event;
+                        // SalesforceInteractions.Personalization.fetch(["Home_Banner"]).then(
+                        //   (personalizations) => {
+                        //     console.log("Personalization Response", personalizations);
+                        //     return displayPersonalizedBanner(personalizations);
+                        //   },
+                        // );
+                        // return event;
                       },
                 }
             ]
