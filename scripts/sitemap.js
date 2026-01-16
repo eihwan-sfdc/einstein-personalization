@@ -162,7 +162,7 @@ function submitAuthForm() {
     SalesforceInteractions.sendEvent({
         user: {
             attributes: {
-                eventType: 'identity',
+                eventType: 'Identity',
                 firstName: inputs["firstname"].value,
                 lastName: inputs["lastname"].value,
                 email: inputs["email"].value,
@@ -176,7 +176,7 @@ function submitAuthForm() {
     SalesforceInteractions.sendEvent({
         user: {
             attributes: {
-                eventType: 'partyIdentification',
+                eventType: 'PartyIdentification',
                 IDName: "Web",
                 IDType: "WebTracking"
             }
