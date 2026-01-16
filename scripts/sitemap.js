@@ -160,6 +160,9 @@ function submitAuthForm() {
     /* Tracking Identity event */
     const inputs = document.getElementById("authenticationForm").elements;
     SalesforceInteractions.sendEvent({
+        interaction: {
+              name: 'Login'
+            },
         user: {
             attributes: {
                 eventType: 'Identity',
