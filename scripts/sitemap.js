@@ -53,7 +53,7 @@ window.onload = function() {
                         //     return displayProductRecommendations(personalizations);
                         //   },
                         // );
-                        // return event;
+                        return event;
                       },
                 },
                 {
