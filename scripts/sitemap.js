@@ -4,10 +4,6 @@ window.onload = function() {
     console.log('DC SDK loaded: ' + SalesforceInteractions);
     SalesforceInteractions.setLoggingLevel('debug');
 
-    SalesforceInteractions.Personalization.Config.initialize({
-
-    });
-
     // Init SDK: initialize with default optin
     // /!\ not production ready: update to declarative consent
     SalesforceInteractions.init({
