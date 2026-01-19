@@ -26,14 +26,14 @@
 
     <div id="loginform" style="visibility: hidden;">
         <div href="#" class="close" onclick="hideAuthForm();"></div>
-        <div id="authenticationForm" onclick="submitAuthForm();">
+        <div id="authenticationForm" >
             <label for="firstname">First Name:</label>
             <input id="firstname" type="text">
             <label for="lastname">Last Name:</label>
             <input id="lastname" type="text">
             <label for="email">Email:</label>
             <input id="email" type="email">
-            <input type="submit" value="Login">
+            <input type="submit" value="Login" onclick="submitAuthForm();">
         </div>
     </div>
 
