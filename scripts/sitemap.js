@@ -29,37 +29,7 @@ window.onload = function() {
                 contentZones: ["div#hero-image"]
             },
             pageTypes: [
-                {
-                    // Track product pages only: 'isMatch' regex filters
-                    name: "product",
-                    isMatch: () => /\/product/.test(window.location.href),
-                    interaction: {
-                        name: "ViewCatalogObject",
-                        catalogObject: {
-                            type: "Product",
-                            id: getProductId(),
-                            interactionName: "View",
-                            attributes: {
-                                description: getProductDescription(),
-                                name: getProductTitle()
-                            }
-                        }
-                    },
-                    listeners: [
-
-                    ],
-                    // onActionEvent: (event) => {
-                    //     // Request personalization for the "homepage_hero" and "homepage_recs" personalization points on the homepage
-                    //     // SalesforceInteractions.Personalization.fetch(["Product_Recommendation"]).then(
-                    //     //   (personalizations) => {
-                    //     //     console.log("Personalization Response", personalizations);
-                    //     //     return displayProductRecommendations(personalizations);
-                    //     //   },
-                    //     // );
-                    //     return event;
-                    //   },
-                },
-                {
+                                {
                     // Home
                     name: "page",
                     isMatch: () => /\/index/.test(window.location.href),
@@ -97,7 +67,37 @@ window.onload = function() {
                     //     // );
                     //     return event;
                     //   },
-                }
+                },
+                {
+                    // Track product pages only: 'isMatch' regex filters
+                    name: "product",
+                    isMatch: () => /\/product/.test(window.location.href),
+                    interaction: {
+                        name: "ViewCatalogObject",
+                        catalogObject: {
+                            type: "Product",
+                            id: getProductId(),
+                            interactionName: "View",
+                            attributes: {
+                                description: getProductDescription(),
+                                name: getProductTitle()
+                            }
+                        }
+                    },
+                    listeners: [
+
+                    ],
+                    // onActionEvent: (event) => {
+                    //     // Request personalization for the "homepage_hero" and "homepage_recs" personalization points on the homepage
+                    //     // SalesforceInteractions.Personalization.fetch(["Product_Recommendation"]).then(
+                    //     //   (personalizations) => {
+                    //     //     console.log("Personalization Response", personalizations);
+                    //     //     return displayProductRecommendations(personalizations);
+                    //     //   },
+                    //     // );
+                    //     return event;
+                    //   },
+                },
             ]
         };
 
@@ -156,19 +156,16 @@ function displayProductRecommendations(jsonData) {
 
 function submitAuthForm() {
 
-    //Change Consnet to OptIn
-    SalesforceInteractions.updateConsents({ 
-        purpose: SalesforceInteractions.ConsentPurpose.Tracking, 
-        provider: "ConsentProvider",
-        status: SalesforceInteractions.ConsentStatus.OptIn 
-    })
+    // //Change Consnet to OptIn
+    // SalesforceInteractions.updateConsents({ 
+    //     purpose: SalesforceInteractions.ConsentPurpose.Tracking, 
+    //     provider: "ConsentProvider",
+    //     status: SalesforceInteractions.ConsentStatus.OptIn 
+    // })
 
     /* Tracking Identity event */
     const inputs = document.getElementById("authenticationForm").elements;
     SalesforceInteractions.sendEvent({
-        interaction: {
-              name: 'Login'
-            },
         user: {
             attributes: {
                 eventType: 'Identity',
