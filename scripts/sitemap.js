@@ -45,16 +45,19 @@ window.onload = function() {
                             }
                         }
                     },
-                    onActionEvent: (event) => {
-                        // Request personalization for the "homepage_hero" and "homepage_recs" personalization points on the homepage
-                        // SalesforceInteractions.Personalization.fetch(["Product_Recommendation"]).then(
-                        //   (personalizations) => {
-                        //     console.log("Personalization Response", personalizations);
-                        //     return displayProductRecommendations(personalizations);
-                        //   },
-                        // );
-                        return event;
-                      },
+                    listeners: [
+
+                    ],
+                    // onActionEvent: (event) => {
+                    //     // Request personalization for the "homepage_hero" and "homepage_recs" personalization points on the homepage
+                    //     // SalesforceInteractions.Personalization.fetch(["Product_Recommendation"]).then(
+                    //     //   (personalizations) => {
+                    //     //     console.log("Personalization Response", personalizations);
+                    //     //     return displayProductRecommendations(personalizations);
+                    //     //   },
+                    //     // );
+                    //     return event;
+                    //   },
                 },
                 {
                     // Home
@@ -81,16 +84,19 @@ window.onload = function() {
                             }
                         }
                     },
-                    onActionEvent: (event) => {
-                        // Request personalization for the "homepage_hero" and "homepage_recs" personalization points on the homepage
-                        // SalesforceInteractions.Personalization.fetch(["Home_Banner"]).then(
-                        //   (personalizations) => {
-                        //     console.log("Personalization Response", personalizations);
-                        //     return displayPersonalizedBanner(personalizations);
-                        //   },
-                        // );
-                        return event;
-                      },
+                    listerns: [
+
+                    ],
+                    // onActionEvent: (event) => {
+                    //     // Request personalization for the "homepage_hero" and "homepage_recs" personalization points on the homepage
+                    //     // SalesforceInteractions.Personalization.fetch(["Home_Banner"]).then(
+                    //     //   (personalizations) => {
+                    //     //     console.log("Personalization Response", personalizations);
+                    //     //     return displayPersonalizedBanner(personalizations);
+                    //     //   },
+                    //     // );
+                    //     return event;
+                    //   },
                 }
             ]
         };
@@ -166,9 +172,9 @@ function submitAuthForm() {
         user: {
             attributes: {
                 eventType: 'Identity',
-                firstName: inputs["firstname"].value,
-                lastName: inputs["lastname"].value,
-                email: inputs["email"].value,
+                firstName: document.getElementById("firstname").value,
+                lastName: document.getElementById("lastname").value,
+                email: document.getElementById("email").value,
                 sourcePageType: window.location.href,
                 isAnonymous: 0
             }
@@ -190,7 +196,7 @@ function submitAuthForm() {
         user: {
             attributes: {
                 interactionName: 'Login',
-                email: inputs["email"].value,
+                email: document.getElementById("email").value,
                 eventType: 'ContactPointEmail',
             }
         }
